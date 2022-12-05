@@ -54,6 +54,7 @@ export default function App() {
           type="date"
           value={birthDay}
           onChange={(e) => setBirthDay(e.target.value)}
+          onClick={() => setResult("")}
         />
         <div className="error">{error}</div>
         <button className="submit-btn" onClick={isBirthDayPalindrome}>
