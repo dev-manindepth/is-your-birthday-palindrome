@@ -17,8 +17,17 @@ export default function App() {
     const mmddyy = date.month + date.day + date.year.slice(-2);
     const yyddmm = date.year.slice(-2) + date.day + date.month;
 
-    console.log(ddmmyyyy, mmddyyyy, yyyymmdd);
-    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yyddmm];
+    const dates = [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yyddmm];
+    const datesWithoutZeros = dates.map((date) =>
+      date
+        .split("")
+        .filter((char) => char !== "0")
+        .join("")
+    );
+    // console.log(datesWithoutZeros);
+    // console.log(ddmmyyyy, mmddyyyy, yyyymmdd);
+    // return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yyddmm];
+    return [...dates, ...datesWithoutZeros];
   };
   const isPalindrome = (str) => {
     return str === str.split("").reverse().join("");
